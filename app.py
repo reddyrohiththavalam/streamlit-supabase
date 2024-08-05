@@ -20,6 +20,20 @@ supabase = create_client(supabase_url, supabase_key)
 #open('dataset.csv', 'wb').write(r.content)
 #feedback_df = pd.read_csv('dataset.csv')
 
+def show_login_signup_forms():
+    col1, col2 = st.columns(2)
+    with col1:
+        with st.expander('Login 🔒'):
+            email = st.text_input('Email', key='login_email')
+            password = st.text_input('Password', type='password', key='login_password')
+            login_btn = st.button('Login', on_click=login, args=(email, password))
+    with col2:
+        with st.expander('Sign Up 📝'):
+            new_email = st.text_input('Email', key='signup_email')
+            new_password = st.text_input('Password', type='password', key='signup_password')
+            signup_btn = st.button('Sign Up', on_click=signup, args=(new_email, new_password))
+
+
 def show_user_info(user):
     with st.expander('User Information'):
         st.success(f'🎉 Logged in as: {user["email"]}')
@@ -28,7 +42,7 @@ def show_user_info(user):
 
 
 def main():
-    show_user_info(data['user'])
+     show_login_signup_forms()
     st.title('Streamlit Supabase 🔒')
 
 if __name__ == '__main__':
