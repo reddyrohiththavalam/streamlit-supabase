@@ -16,7 +16,7 @@ supabase_url = os.environ.get("SUPABASE_URL")
 supabase_key = os.environ.get("SUPABASE_KEY")
 supabase = create_client(supabase_url, supabase_key)
 
-r = requests.get(f'https://docs.google.com/spreadsheet/ccc?key=1ORu0GIhEBfyEtUr9GGFtSg_0QaxB2LuHEvxSpgSaZQs&output=csv')
+r = requests.get(f'https://docs.google.com/spreadsheets/d/1UZRV_O-E21TwKWXlD_7aFralTYvJvK2Gvcp2nxopq9A&output=csv')
 open('dataset.csv', 'wb').write(r.content)
 feedback_df = pd.read_csv('dataset.csv')
 
