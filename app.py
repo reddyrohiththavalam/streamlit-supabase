@@ -42,7 +42,7 @@ def show_user_info(user):
 
 
 def main():
-     show_login_signup_forms()
+    show_login_signup_forms()
     st.title('Streamlit Supabase 🔒')
 
 if __name__ == '__main__':
