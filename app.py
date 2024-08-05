@@ -16,9 +16,9 @@ supabase_url = os.environ.get("SUPABASE_URL")
 supabase_key = os.environ.get("SUPABASE_KEY")
 supabase = create_client(supabase_url, supabase_key)
 
-r = requests.get(f'https://docs.google.com/spreadsheets/d/1UZRV_O-E21TwKWXlD_7aFralTYvJvK2Gvcp2nxopq9A&output=csv')
-open('dataset.csv', 'wb').write(r.content)
-feedback_df = pd.read_csv('dataset.csv')
+#r = requests.get(f'https://docs.google.com/spreadsheets/d/1UZRV_O-E21TwKWXlD_7aFralTYvJvK2Gvcp2nxopq9A&output=csv')
+#open('dataset.csv', 'wb').write(r.content)
+#feedback_df = pd.read_csv('dataset.csv')
 
 def show_user_info(user):
     with st.expander('User Information'):
@@ -28,6 +28,7 @@ def show_user_info(user):
 
 
 def main():
+    show_user_info(data['user'])
     st.title('Streamlit Supabase 🔒')
 
 if __name__ == '__main__':
